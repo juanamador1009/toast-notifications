@@ -38,11 +38,14 @@ git clone https://github.com/juanamador1009/toast-notifications
 ```
 
 2. Make sure to open the `index.html` file on a local server, as the script uses `defer` and may not run correctly if opened directly in the browser. You can use:
+
    - [VS Code Live Server](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer)
    - A simple server with Python:
+
    ```sh
    Python -m http.server 8000
    ```
+
    Then, open `http://localhost:8000` in your browser.
 
 3. Click the buttons to display the notifications.
@@ -51,4 +54,4 @@ git clone https://github.com/juanamador1009/toast-notifications
 
 ## 👨‍💻 Author
 
-Created by [Juan Amador](https://github.com/juanamador1009).
+Developed by [Juan Amador](https://github.com/juanamador1009).

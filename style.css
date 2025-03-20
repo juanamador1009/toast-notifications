@@ -1,0 +1,181 @@
+/* import font family */
+
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+/* default */
+
+:root {
+  /* colors */
+
+  --white-color: #fff;
+  --black-color: #000;
+  --gray-color: #808080;
+  --primary-color: #333;
+  --background-color: #f7edff;
+  --success-color: #008000;
+  --error-color: #ff0000;
+  --invalid-color: #ffd700;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  width: 100%;
+  min-height: 100vh;
+  background-color: var(--background-color);
+  display: flex;
+  align-items: start;
+  justify-content: start;
+}
+
+/* buttons container */
+
+.buttons__container {
+  width: 100%;
+  display: flex;
+  justify-content: start;
+  flex-wrap: wrap;
+  gap: 15px;
+  padding: 20px;
+}
+
+/* buttons */
+
+.btn {
+  width: 120px;
+  height: 40px;
+  background-color: var(--primary-color);
+  color: var(--white-color);
+  border: none;
+  outline: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: transform 0.5s ease;
+}
+
+.btn:hover {
+  transform: translateY(5px);
+}
+
+/* toast notifications container */
+
+#toast__container {
+  width: 100%;
+  position: absolute;
+  bottom: 30px;
+  right: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  overflow: hidden;
+  padding: 20px;
+}
+
+/* toast notification */
+
+.toast {
+  width: 400px;
+  height: 80px;
+  background-color: var(--white-color);
+  font-weight: 500;
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  padding: 15px;
+  margin: 10px 0;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+  transform: translateX(100%);
+  animation: moveleft 0.3s linear forwards;
+  position: relative;
+}
+
+/* toast notification animation */
+
+@keyframes moveleft {
+  100% {
+    transform: translateX(0);
+  }
+}
+
+/* toast notification icon */
+
+.toast i {
+  font-size: 30px;
+}
+
+.toast.success_toast i {
+  color: var(--success-color);
+}
+
+.toast.error_toast i {
+  color: var(--error-color);
+}
+
+.toast.invalid_toast i {
+  color: var(--invalid-color);
+}
+
+/* toast notification progress bar */
+/* Finished in 5 seconds */
+
+.toast::after {
+  content: "";
+  width: 100%;
+  height: 5px;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  animation: anim 5s linear forwards;
+}
+
+/* toast notification progress bar animation */
+
+@keyframes anim {
+  100% {
+    width: 0;
+  }
+}
+
+/* toast notification progress bar color */
+
+.success_toast::after {
+  background-color: var(--success-color);
+}
+
+.error_toast::after {
+  background-color: var(--error-color);
+}
+
+.invalid_toast::after {
+  background-color: var(--invalid-color);
+}
+
+@media (max-width: 500px) {
+  /* buttons container */
+
+  .buttons__container {
+    justify-content: center;
+  }
+
+  /* toast notifications container */
+
+  #toast__container {
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  /* toast notification */
+
+  .toast {
+    width: 100%;
+    /* min-width: fit-content; */
+    min-height: fit-content;
+    height: 80px;
+  }
+}
